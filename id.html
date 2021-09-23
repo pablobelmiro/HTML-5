@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID</title>
+  <style>
+    #box-1 {
+      width: 150px;
+      height: 150px;
+      background-color: black;
+    }
+
+    #box-2 {
+      width: 250px;
+      height: 250px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <p>O atributo ID é considerado único para cada elemento</p>
+
+  <div id="box-1"></div>
+  <br>
+  <div id="box-2"></div>
+  <br>
+  <p>Aplicando JS</p>
+
+  <script>
+    const box1 = document.getElementById('box-1');
+    console.log(box1);
+
+    const box2 = document.querySelector('#box-2');
+    console.log(box2);
+  </script>
+</body>
+
+</html>

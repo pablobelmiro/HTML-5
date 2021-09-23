@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .caixa {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .drop {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="c1" class="caixa" draggable="true"></div>
+  <br>
+  <div id="c2" class="caixa" draggable="true"></div>
+  <br>
+
+  <div class="drop" dropzone="copy"></div>
+
+  <p>No dropzone, quando um arquivo é arrastado ou enviado, podemos criar uma cópia ou move em JS.</p>
+  <hr>
+  Adicionando JS para verificar o dropzone no console <br>
+
+  <script>
+
+    const caixas = document.querySelectorAll('.caixa');
+    const dropZone = document.querySelector('[dropzone]');
+
+    caixas.forEach(caixaEl => {
+
+      caixaEl.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('Text', e.target.id);
+        console.log(e.target.id);
+
+      })
+    });
+
+    /* Por padrão os navegadores cancelam qualquer drop por comportamento padrão, ele apenas exibe, não realizando o drop.
+    
+    Para cancelarmos esse padrão, precisamos de fazer isso via código*/
+
+    // Cancelando o padrão de cancelamento do html drop do navegador:
+
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+    });
+
+    dropZone.addEventListener('drop', e => {
+      const id = e.dataTransfer.getData('Text');
+      const element = document.getElementById(id);
+
+      e.target.appendChild();
+    });
+  </script>
+</body>
+
+</html>
